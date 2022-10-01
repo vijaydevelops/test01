@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>POSTULATE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  scrollX="true" scrollY="true">
+
+  <body>
+  
+  <!-- partial:index.partial.html -->
+  <center>
+    <div class="login-form">
+      <form>
+        <h1>Login</h1>
+        <div class="content">
+          <div class="input-field">
+            <label style="float:left;" > MOBILE NUMBER</label>
+            <input type="number"  (change)="check_no()" placeholder="" id="number" class="login_class"    autocomplete="nope">
+          </div>
+        </div>
+        
+          <button (click)="ajax_search_mob()" style="width: fit-content; text-transform: uppercase; padding: 5px 20px; float:right;"><h3>SEARCH</h3></button>
+        
+      </form>
+    </div>
+</center>
+  
+  </body>
+
+</ion-content>  

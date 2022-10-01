@@ -1,0 +1,7 @@
+{
+  "name": "postulate_erp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
