@@ -46,18 +46,30 @@ export class Mod0107Page implements OnInit {
   ajax_search_mob(){
     var no = $("#number").val();
     var res={}
-    this.api.call_api_post(environment.API_URL+"mastermodule/login",{ "number": no })
+    this.api.call_api_post(environment.API_URL+"mastermodule/fetchkyc",{ "number": no })
     .subscribe((res:any) => {
       var result = res.data;
       console.log('login',result)
   
       if(result['message']=="ok")
       {  
+
+        // add simple table of search result
+
         for(let row of result.data || []) {
           let tcells = "";
+          /*
           for(let col of row){
             tcells += `<td>${col}</td>`;
-          }
+          }*/
+          
+          tcells += `<td style="display:hidden;" >${row['user_id']}</td>`;
+          tcells += `<td>${row['name']}</td>`;
+          tcells += `<td>${row['birth_date']}</td>`;
+          tcells += `<td>${row['address']}</td>`;
+          tcells += `<td>${row['city']}</td>`;
+          tcells += `<td>${row['email']}</td>`;
+
           $("#search_result table").append(`
            <tr>
             ${tcells}
