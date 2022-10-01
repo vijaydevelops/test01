@@ -53,36 +53,22 @@ export class Mod0107Page implements OnInit {
   
       if(result['message']=="ok")
       {  
+        for(let row of result.data || []) {
+          let tcells = "";
+          for(let col of row){
+            tcells += `<td>${col}</td>`;
+          }
+          $("#search_result table").append(`
+           <tr>
+            ${tcells}
+           </tr>
+          `);
+        }
+      }
       
-          this.storage.create();
-          
-          //this.cookies.delete('session_key')
-          this.storage.set('session_key',result['session_key']);
-          this.cookies.set('session_key',result['session_key']);
-        
-          this.api.presentAlert("Login successfully")
-
-            let timeInMs = 3000;
-            let timeout= setTimeout( () => {
-              this.login_reset_form()
-              this.router.navigate(['/master'])
-            }, timeInMs );
-        
-      }
-      else if (result['message']=="incorrect_password")
-      {
-          this.api.presentAlert("Incorrect Password")
-          $("#password").val("")
-
-          let timeInMs = 1500;
-          let timeout= setTimeout( () => {
-            $("#password").focus()
-          }, timeInMs );
-        
-      }
       else 
       {
-        this.api.presentAlertConfirm()
+        // this.api.presentAlertConfirm()
       }
     })
   }
