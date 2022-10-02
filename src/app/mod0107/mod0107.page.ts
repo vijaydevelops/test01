@@ -44,6 +44,19 @@ export class Mod0107Page implements OnInit {
   }
 
   ajax_search_mob(){
+    $("#search_result table").append(`
+      <tr class="click-list-row">
+          <td style="display:hidden;">1</td>
+          <td>vijay</td>
+          <td>thothukudi</td>
+        </tr>
+        <tr class="click-list-row" (click)="test()">
+          <td style="display:hidden;">1</td>
+          <td>vijay</td>
+          <td>thothukudi</td>
+        </tr>
+    `)
+    /*
     var no = $("#number").val();
     var res={}
     this.api.call_api_post(environment.API_URL+"mastermodule/fetchkyc",{ "number": no })
@@ -58,11 +71,7 @@ export class Mod0107Page implements OnInit {
 
         for(let row of result.data || []) {
           let tcells = "";
-          /*
-          for(let col of row){
-            tcells += `<td>${col}</td>`;
-          }*/
-          
+         
           tcells += `<td style="display:hidden;" >${row['user_id']}</td>`;
           tcells += `<td>${row['name']}</td>`;
           tcells += `<td>${row['birth_date']}</td>`;
@@ -83,6 +92,12 @@ export class Mod0107Page implements OnInit {
         // this.api.presentAlertConfirm()
       }
     })
+    */
+  }
+
+  test()
+  {
+    console.log("test01")
   }
   
 }
